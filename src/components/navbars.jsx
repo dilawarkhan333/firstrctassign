@@ -3,20 +3,19 @@ import React from "react";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Carousel from 'react-bootstrap/Carousel';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Link } from "react-router-dom";
+import { AiFillFacebook } from 'react-icons/ai';
+import{ AiFillInstagram} from 'react-icons/ai'
+import{ AiFillLinkedin} from 'react-icons/ai'
+import Button from 'react-bootstrap/Button';
 
-import {
-    MDBFooter,
-    MDBContainer,
-    MDBCol,
-    MDBRow,
-    MDBIcon,
-    MDBBtn
-  } from 'mdb-react-ui-kit';
 
+import Nav from 'react-bootstrap/Nav';
+
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 class Navb extends React.Component{
 render(){
@@ -24,9 +23,50 @@ return(
 
 
 <>
-      <Navbar  style={{background:"linear-gradient(#FFFF00, #2f4f4F,#F1493f)"}} >
+
+
+<Navbar collapseOnSelect expand="lg" style={{background:"linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%)", fontSize:"20px"}}  >
+      <Container>
+
+      <img
+              alt=""
+              src="https://img.icons8.com/?size=512&id=NfbyHexzVEDk&format=png"
+              width="40"
+              height="40"
+              className="d-inline-block align-top"
+              
+            />
+
+        <Navbar.Brand href="#home"><b style={{marginRight:"100px"}} >React Bar</b></Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Link   to="/"  style={{textDecoration:"none" , color:"black",marginLeft:"20px"  }}  >Home</Link>
+            <Link to="/gallery" style={{textDecoration:"none" , color:"black",marginLeft:"20px"}}  >Gallery</Link>
+  
+            <Link   to="/contact"  style={{textDecoration:"none" , color:"black",marginLeft:"20px" }} >Contact Us</Link>
+          
+            <Link  to="/about" style={{textDecoration:"none"  , color:"black",marginLeft:"20px"}}  >
+             About
+            </Link>
+          
+            <Link  to="/service" style={{textDecoration:"none"  , color:"black", marginLeft:"20px"}}  >
+             Services
+            </Link>
+
+          </Nav>
+        
+            
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
+
+
+
+      {/* <Navbar  style={{background:"linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%)"}} >
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="#home">      
           <div > 
             <img
               alt=""
@@ -39,20 +79,47 @@ return(
 
            <b> React Bar</b> 
            {' '}        
-    <r style={{marginLeft:"300"+"px"}}  >Home</r>
+    
+      
+    <Link to="/" style={{textDecoration:"none", color:"black" , gap:"20px",marginLeft:"300"+"px" }}  >
+      
+      Home
+      </Link>
+     
     {' '}
-<r>Gallery</r>
+
+  <Link to="/gallery" style={{textDecoration:"none" , color:"black" }} >
+  Gallery
+  </Link>
+  
+ 
 {' '}
 
-<r>Contact</r>
+
+  
+<Link to="/contact"  style={{textDecoration:"none" , color:"black" }} >
+  Contact
+  </Link>
+  
 {' '}
-<r>About</r>
+
+
+<Link to="/" style={{textDecoration:"none"  , color:"black"}} >
+  About
+  
+  </Link>
+ 
 {' '}
-<r>Services</r>
+
+  
+<Link to="/"  style={{textDecoration:"none"  , color:"black"}} >
+  Services
+  </Link>
+ 
 </div>
           </Navbar.Brand>
         </Container>
-      </Navbar>
+      </Navbar> */}
 
       <Carousel>
       <Carousel.Item>
@@ -64,10 +131,7 @@ return(
          
           alt="First slide"
         />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
+        
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -77,10 +141,7 @@ return(
           alt="Second slide"
         />
 
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
+  
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -90,103 +151,116 @@ return(
           alt="Third slide"
         />
 
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
+        
       </Carousel.Item>
     </Carousel>
+
+
 <br></br>
-    <Row xs={1} md={4} className="g-4">
-      {Array.from({ length: 8 }).map((_, idx) => (
-        <Col key={idx}>
-          <Card style={{marginLeft:15+"px"}} >
-            <Card.Img variant="top" src="https://images.pexels.com/photos/1564839/pexels-photo-1564839.jpeg?auto=compress&cs=tinysrgb&w=600" />
-            <Card.Body>
-              <Card.Title>Danger Owl</Card.Title>
-              <Card.Text>
-              Owls are birds of prey known for their large heads, big eyes, and silent flight. They are nocturnal hunters with excellent vision and feed on various prey, including rodents, birds, and insects.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
 
-    <MDBFooter className='bg-light text-center text-white'>
-      <MDBContainer className='p-4 pb-0'>
-        <section className='mb-4'>
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#3b5998' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='facebook-f' />
-          </MDBBtn>
+<div  style={{marginLeft:"20px", marginRight:"20px"}} >
 
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#55acee' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='twitter' />
-          </MDBBtn>
+<div className="row" >
+                    <div className="col-lg-3">
+                    <Card style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://images.pexels.com/photos/1300355/pexels-photo-1300355.jpeg?auto=compress&cs=tinysrgb&w=600" />
+                      
+                    </Card>
 
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#dd4b39' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='google' />
-          </MDBBtn>
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#ac2bac' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='instagram' />
-          </MDBBtn>
+                    </div>
+                    <div className="col-lg-3">
+                    <Card style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://images.pexels.com/photos/11815418/pexels-photo-11815418.jpeg?auto=compress&cs=tinysrgb&w=600" />
+                       
+                    </Card>
 
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#0082ca' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='linkedin-in' />
-          </MDBBtn>
+                    </div>
+                    <div className="col-lg-3">
+                    <Card style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://images.pexels.com/photos/16683115/pexels-photo-16683115.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" />
+                      
+                    </Card>
 
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#333333' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='github' />
-          </MDBBtn>
-        </section>
-      </MDBContainer>
+                    </div>
 
-      <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-        © 2020 Copyright:
-        <a className='text-white' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
-        </a>
-      </div>
-    </MDBFooter>
+                  
+                    <div className="col-lg-3">
+                    <Card style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://images.pexels.com/photos/16240113/pexels-photo-16240113.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" />
+                    
+                    </Card>
+
+                    </div>
+
+
+                   
+                </div>
+
+<br></br>
+                <div className="row" >
+                    <div className="col-lg-3">
+                    <Card style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://images.pexels.com/photos/15020102/pexels-photo-15020102.jpeg?auto=compress&cs=tinysrgb&w=600" />
+                     
+                    </Card>
+
+                    </div>
+                    <div className="col-lg-3">
+                    <Card style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg?auto=compress&cs=tinysrgb&w=600" />
+                       
+                    </Card>
+
+                    </div>
+                    <div className="col-lg-3">
+                    <Card style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://images.pexels.com/photos/1316294/pexels-photo-1316294.jpeg?auto=compress&cs=tinysrgb&w=600" />
+                     
+                    </Card>
+
+                    </div>
+
+                  
+                    <div className="col-lg-3">
+                    <Card style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://images.pexels.com/photos/2570699/pexels-photo-2570699.jpeg?auto=compress&cs=tinysrgb&w=600" />
+                       
+                    </Card>
+
+                    </div>
+
+
+                   
+                </div>
+
+
+
+                </div>
+
+
+
+
+
+
+    
+<div style={{display:"flex" , gap:"20px",justifyContent:"center"}} >
+
+  <h1 style={{height:"25px", width:"30px" , color:"blue" }} >  < AiFillFacebook/> </h1> 
+
+  <h1 style={{height:"30px", width:"30px",color:"pink"}} > <AiFillInstagram/></h1>
+  <h1 style={{height:"30px", width:"30px",color:"black"}} >
+<AiFillLinkedin/>
+</h1>
+</div>
+
+<br></br>
+
+
+      <div className='text-center p-3' style={{background:"linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%)"}}>
+      <b>  © 2020 Copyright:</b>
+        </div>
 </>
+
 
 
 )
